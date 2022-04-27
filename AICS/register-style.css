@@ -1,0 +1,164 @@
+body {
+    background-color: #0042aa;
+}
+
+#bg {
+	margin-left: 35%;
+	position: fixed;
+	width: 100%;
+	height: auto;
+	margin-top: -1%;
+}
+
+#yellow {
+	margin-left: 35%;
+	position: fixed;
+	width: 100%;
+	height: auto;
+	margin-top: -1%;
+    opacity: 40%;
+}
+
+#aics-logo {
+	width: 120px;
+	height: 120px;
+	margin-left: 12.5%;
+	margin-top: 50px;
+}
+
+p {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    margin-left: 6%;
+    margin-top: -0.5%;
+}
+
+h5 {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-left: 7.8%;
+    margin-top: -3.5%;
+    text-decoration: none;
+}
+
+h6 {
+    color:#fab830;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    margin-left: 13.5%;
+    margin-top: -1.8%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.register {
+    text-decoration: none;
+    color:#fab830;
+}
+
+.register:hover {
+    text-decoration: underline;
+}
+
+.login-button {
+    margin-left: 160px;
+}
+
+#text {
+    text-align: right;
+    margin-top: 500px;
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 15%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    cursor: default;
+}
+
+#text h1 {
+    font-size: 50px;
+}
+
+#text h3 {
+    font-size: 25px;
+}
+
+#text h5 {
+    font-size: 18px;;
+}
+
+#text h6 {
+    font-size: 18px;
+    color: white;
+}
+
+#text h6 a {
+    text-decoration: none;
+    color: #fab830;
+}
+
+#text h6 a:hover {
+    text-decoration: underline;
+    color: #0042aa;
+}
+
+input[type="email"] {
+    width: 400px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    margin-left: -100px;
+    border-radius: 10px;
+}
+
+input[type="password"] {
+    width: 400px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    margin-left: -100px;
+    border-radius: 10px;
+}
+
+
+.login-button button {
+    width: 400px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    margin-left: -100px;
+    background-color: #fab830;
+    color: white;
+    text-decoration: none;
+}
+
+.login-button button:hover {
+    background-color: white;
+    color: #fab830;
+    text-decoration: underline;
+}
+
+.tos h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+    margin-left: -66%;
+    cursor: default;
+}
+
+.tos a {
+    color: #fab830;
+    text-decoration: none;
+}
+
+.tos a:hover {
+    text-decoration: underline;
+}
+
+h4 {
+    color: #979797;
+    text-align: center;
+    margin-left: -66%;
+}

@@ -1,0 +1,128 @@
+body {
+    background-color: #0042aa;
+}
+
+#aics {
+    color: white;
+    margin-left: 51%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    margin-top: 25px;
+    cursor: default;
+}
+
+#logo {
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	left: 520px;
+	top: 10px;
+	overflow: visible;
+}
+
+.header-bar {
+    position: relative;
+    margin-top: 60px;
+    margin-left: -0.3%;
+}
+
+.header-text {
+    font-size: 45px;
+    color: white;
+    font-family: 'Segoe UI';
+    letter-spacing: 1px;
+    position: absolute;
+    top: 102px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: default;
+  }
+
+#footer {
+    position: relative;
+    margin-top: 510px;
+    margin-left: -0.3%;
+}
+
+#inquiries {
+	color: white;
+    margin-left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: larger;
+    margin-top: 20px;
+    cursor: default;
+}
+
+.banners {
+	position: absolute;
+	width: 900px;
+	height: 645px;
+	left: 76px;
+	top: 139px;
+	overflow: visible;
+}
+
+#banner-1 {
+	position: absolute;
+	width: 600px;
+	height: 200px;
+	left: 50px;
+	top: 280px;
+	overflow: visible;
+}
+
+#banner-2 {
+	position: absolute;
+	width: 600px;
+	height: 200px;
+	left: 740px;
+	top: 40px;
+	overflow: visible;
+}
+
+#banner-3 {
+	position: absolute;
+	width: 600px;
+	height: 200px;
+	left: 50px;
+	top: 40px;
+	overflow: visible;
+}
+
+.enroll {
+	position: absolute;
+	width: 0px;
+	height: 183px;
+	left: 972px;
+	top: 403px;
+	overflow: visible;
+    cursor: pointer;
+}
+
+#enroll-now{
+	right: -430px;
+	top: -50%;
+	position: absolute;
+	overflow: visible;
+	width: 731px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Calibri;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 100px;
+	color: white;
+	letter-spacing: 0.1px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fab830;
+    text-decoration: underline;
+}

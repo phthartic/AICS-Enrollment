@@ -1,0 +1,75 @@
+body {
+    background-color: #0042aa;
+}
+
+#aics {
+    color: white;
+    margin-left: 51%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    margin-top: 25px;
+    cursor: default;
+}
+
+#logo {
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	left: 520px;
+	top: 10px;
+	overflow: visible;
+}
+
+.header-bar {
+    position: relative;
+    margin-top: 60px;
+    margin-left: -0.3%;
+}
+
+#footer {
+    position: relative;
+    margin-top: 100px;
+    margin-left: -0.3%;
+}
+
+#inquiries {
+	color: white;
+    margin-left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: larger;
+    margin-top: 20px;
+    cursor: default;
+}
+
+.portal button {
+    width: 750px;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: white;
+    color: #fab830;
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 60px;
+    margin-left: 26%;
+}
+
+.portal a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fab830;
+}
+
+.portal button:hover{
+    background-color: #fab830;
+    color: white;
+}
+
+.portal a:hover {
+    text-decoration: underline;
+    color: white;
+}
