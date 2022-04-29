@@ -1,10 +1,15 @@
 <?php 
 
+session_start();
+
 $db = mysqli_connect('localhost','root','','register');
 
 
 
 if(isset($_POST['submit'])){
+
+    $userid = $_SESSION["userid"];
+
     
     $schedule = $_POST['schedule'];
     $strand = $_POST['strand'];
@@ -22,7 +27,7 @@ if(isset($_POST['submit'])){
     $fbname = $_POST['fbname'];
     $religion = $_POST['religion'];
     $guardian = $_POST['guardian'];
-    $fbguardian = $_POST['fbguardian'];
+    $numberguardian = $_POST['numberguardian'];
     $mother = $_POST['mother'];
     $father = $_POST['father'];
     $endelem = $_POST['endelem'];
@@ -31,12 +36,28 @@ if(isset($_POST['submit'])){
     $section = $_POST['section'];
     $jhsschool = $_POST['jhsschool'];
 
-    $insertng = "INSERT INTO form(schedule,strand,mode,sex,status,lastname,firstname,middlename,lrn,birthdate,cpnumber,
-    birthplace,nationality,fbname,religion,guardian,fbguardian,mother,father,endelem,refer,endjhs,section,jhsschool) 
-    value('$schedule','$strand','$mode','$sex','$status','$lastname','$firstname','$middlename','$lrn','$birthdate','$cpnumber','$birthplace',
-    '$nationality','$fbname','$religion','$guardian','$fbguardian','$mother','$father','$endelem','$refer','$endjhs','$section','$jhsschool')";
+    $insertng = "INSERT INTO form(regacc_fk,schedule,strand,mode,sex,`status`,lastname,firstname,middlename,lrn,birthdate,cpnumber,
+    birthplace,nationality,fbname,religion,guardian,numberguardian,mother,father,endelem,refer,endjhs,section,jhsschool) 
+    value('$userid','$schedule','$strand','$mode','$sex','$status','$lastname','$firstname','$middlename','$lrn','$birthdate','$cpnumber','$birthplace',
+    '$nationality','$fbname','$religion','$guardian','$numberguardian','$mother','$father','$endelem','$refer','$endjhs','$section','$jhsschool')";
 
 $result =  mysqli_query($db,$insertng);
+
+
+
+/**
+$_SESSION['lastname'] = $row1['lastname'];
+$_SESSION['firstname'] = $row1['firstname'];
+$_SESSION['middlename'] = $row1['middlename'];
+$_SESSION['lrn'] = $row1['lrn'];
+$_SESSION['sex'] = $row1['sex'];
+$_SESSION['birthdate'] = $row1['birthdate'];
+$_SESSION['birthplace'] = $row1['birthplace'];
+$_SESSION['nationality'] = $row1['nationality'];
+$_SESSION['cpnumber'] = $row1['cpnumber'];
+$_SESSION['fbname'] = $row1['fbname'];
+**/
+
 
 header('location:enter-app.html');
 }
@@ -66,135 +87,135 @@ header('location:enter-app.html');
     <div class="app-form-first-column">
         <div id="schedule" required>  
             <label for="schedule">Preferred Schedule</label> <br> 
-            <input type="radio" id="schedule" name="schedule" value="am">AM Schedule (6AM-12NN)<br>
-            <input type="radio" id="schedule" name="schedule" value="pm">PM Schedule (1PM-7PM)<br/>  
+            <input type="radio" id="schedule" name="schedule" value="AM">AM Schedule (6AM-12NN)<br>
+            <input type="radio" id="schedule" name="schedule" value="PM">PM Schedule (1PM-7PM)<br/>  
         </div> <br>
         <div id="strand" required>
             <label for="strand">Preferred Strand</label> <br> 
-            <input type="radio" id="strand" name="strand" value="abm">ABM (Accountancy, Business, and Management)<br>
-            <input type="radio" id="strand" name="strand" value="humss">HUMSS (Humanities, and Social Sciences)<br>
-            <input type="radio" id="strand" name="strand" value="gas">GAS (General Academic Strand) (6AM-12NN)<br>
-            <input type="radio" id="strand" name="strand" value="ict">ICT (Information, and Communication Technology)<br>
-            <input type="radio" id="strand" name="strand" value="ia">IA (Industrial Arts)<br/>    
+            <input type="radio" id="strand" name="strand" value="ABM">ABM (Accountancy, Business, and Management)<br>
+            <input type="radio" id="strand" name="strand" value="HUMSS">HUMSS (Humanities, and Social Sciences)<br>
+            <input type="radio" id="strand" name="strand" value="GAS">GAS (General Academic Strand) (6AM-12NN)<br>
+            <input type="radio" id="strand" name="strand" value="ICT">ICT (Information, and Communication Technology)<br>
+            <input type="radio" id="strand" name="strand" value="IA">IA (Industrial Arts)<br/>    
         </div> <br>
         <div id="mode" required>  
             <label for="mode">Mode of Learning (in case<br>there's still no Face-To-Face)</label> <br> 
-            <input type="radio" id="mode" name="mode" value="modular">Modular (Free 64GB OTG Flash Drive)<br>
-            <input type="radio" id="mode" name="mode" value="online">Online (Free Microsoft Teams Account)<br/>  
+            <input type="radio" id="mode" name="mode" value="Modular">Modular (Free 64GB OTG Flash Drive)<br>
+            <input type="radio" id="mode" name="mode" value="Online">Online (Free Microsoft Teams Account)<br/>  
         </div> <br>
         <div id="sex-status" required>  
             <label for="sex">Sex</label> <br> 
-            <input type="radio" id="sex" name="sex" value="male">Male<br>
-            <input type="radio" id="sex" name="sex" value="female">Female<br/>
+            <input type="radio" id="sex" name="sex" value="Male">Male<br>
+            <input type="radio" id="sex" name="sex" value="Female">Female<br/>
             <br>
             <label for="status">Status</label> <br> 
-            <input type="radio" id="status" name="status" value="single">Single<br>
-            <input type="radio" id="status" name="status" value="married">Married<br/>   
+            <input type="radio" id="status" name="status" value="Single">Single<br>
+            <input type="radio" id="status" name="status" value="Married">Married<br/>   
         </div> <br>
     </div>
     <div class="app-form-second-column">
         <div id="last-name" required>
-            <label for="last-name" name="lastname">Last Name</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="last-name">Last Name</label><br>
+            <input type="text" name="lastname" placeholder="Type Here"> 
         </div><br>
         <div id="first-name" required>
-            <label for="first-name" name="firstname">First Name</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="first-name">First Name</label><br>
+            <input type="text" name="firstname" placeholder="Type Here"> 
         </div><br>
         <div id="middle-name">
-            <label for="middle-name" name="middlename">Middle Name</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="middle-name" >Middle Name</label><br>
+            <input type="text" name="middlename" placeholder="Type Here"> 
         </div><br>
         <div id="lrn" required>
-            <label for="lrn" name="lrn">LRN:</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="lrn" >LRN:</label><br>
+            <input type="text" name="lrn" placeholder="Type Here"> 
         </div><br>
         <div id="birthdate" required>
-            <label for="birthdate" name="birthdate">Date of Birth</label><br>
-            <input type="type" placeholder="dd/mm/yy"> 
+            <label for="birthdate" >Date of Birth</label><br>
+            <input type="text" name="birthdate" placeholder="dd/mm/yy"> 
         </div><br>
         <div id="cp-number" required>
-            <label for="cp-number" name="cpnumber">Cellphone Number</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="cp-number" >Cellphone Number</label><br>
+            <input type="text" name="cpnumber" placeholder="Type Here"> 
         </div><br>
         <div id="birthplace" required>
-            <label for="birthplace" name="birthplace">Place of Birth</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="birthplace" >Place of Birth</label><br>
+            <input type="text" name="birthplace" placeholder="Type Here"> 
         </div><br>
     </div>
     <div class="app-form-third-column">
         <div id="nationality" required>
-            <label for="nationality" name="nationality">Nationality</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="nationality" >Nationality</label><br>
+            <input type="text" name="nationality" placeholder="Type Here"> 
         </div><br>
         <div id="fb-name" required>
-            <label for="fb-name" name="fbname">FB Name or Messenger</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="fb-name" >FB Name or Messenger</label><br>
+            <input type="text" name="fbname" placeholder="Type Here"> 
         </div><br>
         <div id="religion" required>
             <label for="religion">Religion</label> <br> 
-            <input type="radio" id="religion" name="religion" value="catholic">Catholic<br>
-            <input type="radio" id="relgion" name="religion" value="inc">Iglesia ni Cristo (INC)<br>
-            <input type="radio" id="religion" name="religion" value="born-again">Born Again Christian<br>
-            <input type="radio" id="religion" name="religion" value="islam">Islam<br>
-            <input type="radio" id="religion" name="religion" value="seventh-day">Seventh Day Adventist<br/>    
+            <input type="radio" id="religion" name="religion" value="Catholic">Catholic<br>
+            <input type="radio" id="relgion" name="religion" value="INC">Iglesia ni Cristo (INC)<br>
+            <input type="radio" id="religion" name="religion" value="Born Again">Born Again Christian<br>
+            <input type="radio" id="religion" name="religion" value="Islam">Islam<br>
+            <input type="radio" id="religion" name="religion" value="Seventh Day Adventist">Seventh Day Adventist<br/>    
         </div>
         <input type="type" placeholder="Other"><br>
         <br>
         <div id="guardian" required>
-            <label for="guardian" name="guardian">Name of Guardian</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="guardian" >Name of Guardian</label><br>
+            <input type="text" name="guardian" placeholder="Type Here"> 
         </div><br>
         <div id="number-guardian" required>
-            <label for="number-guardian" name="numberguardian">Contact Number of<br>Guardian</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="number-guardian" >Contact Number of<br>Guardian</label><br>
+            <input type="text" name="numberguardian" placeholder="Type Here"> 
         </div><br>
     </div>
     <div class="app-form-fourth-column">
         <div id="mother" required>
-            <label for="mother" name="mother">Mother's Full<br>Maiden Name</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="mother" >Mother's Full<br>Maiden Name</label><br>
+            <input type="text" name="mother" placeholder="Type Here"> 
         </div><br>
         <div id="father" required>
-            <label for="father" name="father">Father's Name</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="father" >Father's Name</label><br>
+            <input type="text" name="father" placeholder="Type Here"> 
         </div><br>
         <div id="elem" required>
-            <label for="elem" name="elem">Elementary School</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="elem" >Elementary School</label><br>
+            <input type="text" name="elem" placeholder="Type Here"> 
         </div><br>
         <div id="end-elem" required>
-            <label for="end-elem" name="endelem">Taon kung kailan ka<br>nagtapos ng elementary</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="end-elem" >Taon kung kailan ka<br>nagtapos ng elementary</label><br>
+            <input type="text" name="endelem" placeholder="Type Here"> 
         </div><br>
         <div id="refer">
-            <label for="refer" name="refer">Referred By</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="refer" >Referred By</label><br>
+            <input type="text" name="refer" placeholder="Type Here"> 
         </div><br>
         <div id="end-jhs" required>
-            <label for="end-jhs" name="endjhs">Taon kung kailan ka nagtapos<br>ng Junior High School</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="end-jhs" >Taon kung kailan ka nagtapos<br>ng Junior High School</label><br>
+            <input type="text" name="endjhs" placeholder="Type Here"> 
         </div><br>
     </div>
     <div class="app-form-fifth-column">
         <div id="section" required>
-            <label for="section" name="section">G10-Section</label><br>
-            <input type="type" placeholder="Type Here"> 
+            <label for="section" >G10-Section</label><br>
+            <input type="text" name="section" placeholder="Type Here"> 
         </div><br>
         <div id="jhs-school" required>
             <label for="jhs-school">Junior High School</label> <br> 
-            <input type="radio" id="jhs-school" name="jhsschool" value="kvnhs">KVNHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="sinhs">SINHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="sv8b">SV8B NHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="sv8c">SV8C NHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="tnhs">TNHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="mhnhs">MHNHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="sjnhs">SJNHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="glgmnhs">GLGMNHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="wnhs">WNHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="bnhs">BNHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="mnhs">MNHS<br>
-            <input type="radio" id="jhs-school" name="jhsschool" value="others">Other School<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="KVNHS">KVNHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="SINHS">SINHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="SV8B">SV8B NHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="SV8C">SV8C NHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="TNHS">TNHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="MHNHS">MHNHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="SJNHS">SJNHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="GLGMNHS">GLGMNHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="WNHS">WNHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="BNHS">BNHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="MNHS">MNHS<br>
+            <input type="radio" id="jhs-school" name="jhsschool" value="Others">Other School<br>
         </div><br>
         <br>
         <button type="submit" name="submit">Submit</button>

@@ -67,3 +67,7 @@ hr {
     height: 1px;
     background-color: #fab830;
 }
+
+p {
+    text-align: left;
+}

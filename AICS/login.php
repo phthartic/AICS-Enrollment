@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
 
     $con = mysqli_query($db,$select);
 
-
+    $row1 = mysqli_fetch_array($con);
 
     if(mysqli_num_rows($con) > 0){
 
@@ -22,7 +22,8 @@ if(isset($_POST['submit'])){
   
         if($row['email'] = 'email' && $row['password'] = 'password'){
             
-       $_SESSION['email'] = $row['name'];
+       $_SESSION['email'] = $row1['email'];
+       $_SESSION['userid'] = $row1['id'];
         header('location:homepage.php');
        
     
