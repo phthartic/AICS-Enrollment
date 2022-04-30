@@ -2,6 +2,7 @@
 $db =mysqli_connect('localhost','root','','register');
 
 session_start();
+error_reporting(0);
 
 $userid = $_SESSION['userid'];
 
