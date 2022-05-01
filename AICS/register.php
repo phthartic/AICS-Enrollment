@@ -24,8 +24,8 @@ if(mysqli_num_rows($result) > 0){
     if($password != $cpassword){
        $error[] = 'password not matched!';
     }else{
-       $insert = "INSERT INTO regacc(email,password) VALUES('$email','$password')";
-    mysqli_query($db, $insert);
+       $insert = "INSERT INTO regacc(email,`password`, `role`) VALUES('$email','$password', 'enrollee')";
+       mysqli_query($db, $insert);
        header('location:registered.html');
        
     }

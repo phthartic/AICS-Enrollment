@@ -1,18 +1,19 @@
 <?php
-session_start();
 
 @include 'config.php';
-//error_reporting(0);
+
+session_start();
 
 if(!isset($_SESSION['role'])){
-    header('location: login.php');
- }
+   header('location: login.php');
+}
+
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title> AICS - Homepage </title>
+        <title> AICS - Admin Page </title>
         <link rel = "icon" href = "Pictures/logo.png" type = "image/x-icon">
         <link rel="stylesheet" href="homepage-style.css">
     </head>
@@ -26,16 +27,16 @@ if(!isset($_SESSION['role'])){
     </div>
     <div class="header">
         <img class="header-bar" src="Pictures/header footer.png">
-        <div class="header-text">Hello, <?php echo $_SESSION['email'] ?>!</div>
+        <div class="header-text">Hello, <?php echo $_SESSION['role'] ?>!</div>
         <!--<div class="">User ID = <?php //echo $_SESSION['userid'] ?></div>-->
     </div>
     <div class="pages">
         <div class="left-pages">
-            <a href="profile.php"><button>Profile</button></a>
-            <a href="finalize-application.html"><button>Finalize Application</button></a>
+            <a href="admin-profile.html"><button>Profile</button></a>
+            <a href="users.php"><button>Users</button></a>
         </div>
         <div class="right-pages">
-            <a href="application-form.php"><button>Application Form</button></a>
+            <a href="user-forms.php"><button>Forms</button></a>
             <a href="logout.php"><button>Sign Out</button></a>
         </div>
         </div>

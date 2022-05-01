@@ -1,46 +1,38 @@
 <?php 
-
-$db =mysqli_connect('localhost','root','','register');
-
-
 session_start();
+@include 'config.php';
 
 if(isset($_POST['submit'])){
+    
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-
-    $select = "SELECT * FROM regacc WHERE email='$email' && password ='$password'";
+    $select = "SELECT * FROM regacc WHERE email = '$email' AND `password` = '$password'";
 
     $con = mysqli_query($db,$select);
 
-    $row1 = mysqli_fetch_array($con);
+    $row = mysqli_fetch_array($con);
 
-    if(mysqli_num_rows($con) > 0){
-
-        $row = mysqli_fetch_array($con);
-  
-        if($row['email'] = 'email' && $row['password'] = 'password'){
-            
-       $_SESSION['email'] = $row1['email'];
-       $_SESSION['userid'] = $row1['id'];
-        header('location:homepage.php');
-       
+    if($row['role'] == 'admin'){ // This will route the page to admin side
+        
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['userid'] = $row['id'];
+        $_SESSION['role'] = 'admin';
+        header('location: admin.php');
     
-     }else{
-         $error[] = '<script>alert("wrong")</script>';
-     }
-  };
+    } else if ($row['role'] == 'enrollee'){ // This will route the page to enrollee
+
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['userid'] = $row['id'];
+        $_SESSION['role'] = 'enrollee';
+        header('location: homepage.php');
+
+    }else {
+        $error[] = '<script>alert("wrong")</script>';
+    }
 
 }
-
-
-
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html>

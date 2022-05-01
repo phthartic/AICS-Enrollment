@@ -34,32 +34,38 @@ if(mysqli_num_rows($con) > 0){
     </head>
 <body>
     <div class="container">
+   
         <div id="head-line">
             <img id="logo" src="Pictures/logo.png">
         <div id="aics">
             <span>Asian Institute of Computer Studies</span>
         </div>
     </div>
+ 
     <div class="header">
         <img class="header-bar" src="Pictures/header footer.png">
     </div>
+
     <div class="info">
         <p>
-            <h1><?php echo $row['firstname'].' '.$row['middlename'].' '.$row['lastname'] ?></h1>
+        <center>
+            <h1><?php echo $row['firstname'].' '.$row['middlename'].' '.$row['lastname'] ?></h1></center>
             <hr>
             <h3>
-                LRN: <?php echo $row['lrn'] ?>
+                LRN: <span style = color:#fab830;><?php echo $row['lrn'] ?></span>
             </h3>
             <h4>
-                Sex: <?php echo $row['sex']?><br>
-                Birthdate: <?php echo $row['birthdate']?><br>
-                Place of Birth: <?php echo $row['birthplace']?><br>
-                Nationality: <?php echo $row['nationality']?><br>
-                Cellphone Number: <?php echo $row['cpnumber']?><br>
-                Facebook Name: <?php echo $row['fbname']?><br>
+                Sex: <span style = color:#fab830;><?php echo $row['sex']?></span><br>
+                Birthdate: <span style = color:#fab830;><?php echo $row['birthdate']?></span><br>
+                Place of Birth: <span style = color:#fab830;><?php echo $row['birthplace']?></span><br>
+                Nationality: <span style = color:#fab830;><?php echo $row['nationality']?></span><br>
+                Cellphone Number: <span style = color:#fab830;><?php echo $row['cpnumber']?></span><br>
+                Facebook Name: <span style = color:#fab830;><?php echo $row['fbname']?></span><br>
             </h4>
+            
         </p>
     </div>
+ 
     <img id="footer" src="Pictures/header footer.png">
     <div id="inquiries">
         <span><p>For inquiries and concerns email us at <b>aics_montalban@aics.edu.ph</b></p></span>
