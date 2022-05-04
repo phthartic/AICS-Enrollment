@@ -39,7 +39,7 @@ if(!isset($_SESSION['role'])){
             <a href="user-forms.php"><button>Forms</button></a>
             <a href="logout.php"><button>Sign Out</button></a>
         </div>
-        </div>
+    </div>
     <img id="footer" src="Pictures/header footer.png">
     <div id="inquiries">
         <span><p>For inquiries and concerns email us at <b>aics_montalban@aics.edu.ph</b></p></span>

@@ -64,7 +64,7 @@ body {
     color: #fab830;
 }
 
-.portal button:hover{
+.portal button:hover, .portal a:hover{
     background-color: #fab830;
     color: white;
 }

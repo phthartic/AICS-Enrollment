@@ -21,6 +21,10 @@ body {
 	overflow: visible;
 }
 
+.header {
+    width: 100%;
+}
+
 .header-bar {
     position: relative;
     margin-top: 60px;

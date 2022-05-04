@@ -40,7 +40,12 @@
 
 $db = mysqli_connect('localhost','root','','register');
 
-$sql = "SELECT * FROM regacc";
+session_start();
+
+$email = $_SESSION['email'];
+$role = $_SESSION['role'];
+
+$sql = "SELECT * FROM regacc WHERE email != '$email' AND role != '$role'"; // change query to not display information of the current logged in user, to avoid deleting it.
 $result = $db->query($sql);
 
 
@@ -48,9 +53,11 @@ if (!$result){
   die("Error !" . $db->error);
 }
 
+$x=1; //added to this to start the count of fetched data to 1 followed by increment on line 68
+
 while($row = $result->fetch_assoc()){
   echo"<tr>
-                  <td style = color:#fbf2df;>" . $row["id"] ."</td>
+                  <td style = color:#fbf2df;>" . $x ."</td>
                   <td style = color:#fbf2df;>" . $row["email"] ."</td>
                   <td style = color:#fbf2df;>" . $row["password"] . "</td>
                   <td style = color:#fbf2df;>" . $row["role"] . "</td>
@@ -58,6 +65,7 @@ while($row = $result->fetch_assoc()){
                    <a href='users.php?id=" . $row["id"] ." ' class='btn btn-danger' style = color:#fab830;><button style=background-color:#fab830;>DELETE</button></a>
                 </td>
         </tr>";
+    $x++; //depends on data the x number will increase
 }
 
 if(isset($_GET['id'])){
